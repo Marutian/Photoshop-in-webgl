@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	InitTopbar();
+	InitTools();
 
 })
 function InitTopbar(){
@@ -16,6 +17,10 @@ function InitTopbar(){
 		});
 		
 	});
-
-	
+}
+function InitTools(){
+	$('#tools .tool').click(function(){
+		$('#tools .tool.active').removeClass('active');
+		$(this).addClass('active');
+	});
 }
