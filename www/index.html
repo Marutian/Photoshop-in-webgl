@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html><head>
     <title>WebGL Filter</title>
-    <script type="text/javascript" src="jquery/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="jquery/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="jquery/jquery.ui.slider.js"></script>
     <script type="text/javascript" src="http://evanw.github.com/glfx.js/glfx.js"></script>
+    <script type="text/javascript" src="photoshop.js"></script>
     <script type="text/javascript" src="script.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="photoshop.css">
 </head><body>
+    <div id="topbar">
+        <div class="logo"><img src="images/logo.jpg" alt="logo"></div>
+        <ul class="menu">
+            <li class="file">File
+                <ul class="open">
+                    <li class="top_menu new">
+                        New
+                    </li>
+                    <li class="top_menu load">
+                        Open
+                    </li>
+                    <li class="top_menu save">
+                        Save
+                    </li>
+                </ul>
+            </li>
+            <li class="edit">Edit
+             <ul class="open">
+                    <li class="top_menu cut">
+                        Cut
+                    </li>
+                    <li class="top_menu copy">
+                        Copy
+                    </li>
+                    <li class="top_menu paste">
+                        Paste
+                    </li>
+                    <li class="border">
+                    </li>
+                    <li class="top_menu fill">
+                        Fill
+                    </li>
+                    <li class="top_menu Stroke">
+                        Stroke
+                    </li>
+                </ul>
+            </li>
+            <li class="image">Image</li>
+            <li class="layer">Layer</li>
+            <li class="type">Type</li>
+            <li class="select">Select</li>
+            <li class="filter">Filter</li>
+            <li class="3d">3D</li>
+            <li class="view">View</li>
+            <li class="window">Window</li>
+            <li class="help">Help</li>
+        </ul>
+    </div>
     <div id="toolbar">
         <div class="button" id="load">Load</div>
         <div class="button" id="save">Save</div>
