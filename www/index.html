@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head>
-    <title>WebGL Filter</title>
+    <title>Web PhotoShop</title>
     <script type="text/javascript" src="jquery/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="jquery/jquery.ui.slider.js"></script>
     <script type="text/javascript" src="http://evanw.github.com/glfx.js/glfx.js"></script>
@@ -48,7 +48,25 @@
                     </li>
                 </ul>
             </li>
-            <li class="image">Image</li>
+            <li class="image">Image
+                <ul class="open">
+                    <li class="top_menu contrast">
+                        Brightness / Contrast
+                    </li>
+                    <li class="top_menu hue">
+                        Hue / Saturation
+                    </li>
+                    <li class="top_menu curves">
+                        Curves
+                    </li>
+                    <li class="top_menu denoise">
+                        Denoise
+                    </li>
+                    <li class="top_menu unsharp">
+                        Unsharp Mask
+                    </li>
+                </ul>
+            </li>
             <li class="layer">Layer</li>
             <li class="type">Type</li>
             <li class="select">Select</li>
@@ -65,6 +83,35 @@
         <!-- <div class="button disabled">Undo</div>
         <div class="button disabled">Redo</div> -->
         <div class="button" id="about">About</div>
+    </div>
+    <div id="tools">
+        <img class="top" src="images/tools_top.jpg">
+        <div class="menu">
+            <div class="tool move active">
+                    <img src="images/tools0.jpg">
+            </div>
+            <div class="tool select">
+                    <img src="images/tools1.jpg">
+            </div>
+            <div class="tool crop">
+                    <img src="images/tools2.jpg">
+            </div>
+            <div class="tool colorpick">
+                    <img src="images/tools3.jpg">
+            </div>
+            <div class="tool brush">
+                    <img src="images/tools4.jpg">
+            </div>
+            <div class="tool eraser">
+                    <img src="images/tools6.jpg">
+            </div>
+            <div class="tool fill">
+                    <img src="images/tools7.jpg">
+            </div>
+            <div class="tool text">
+                    <img src="images/tools8.jpg">
+            </div>
+        </div>
     </div>
     <div id="sidebar"></div>
     <div id="editor">
