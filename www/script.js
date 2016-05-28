@@ -321,7 +321,7 @@ $(window).load(function() {
     }
 
     // Change the filter when a sidebar item is clicked
-    $('#sidebar .item .title').live('mousedown', function(e) {
+    $('#sidebar .item .title').bind('mousedown', function(e) {
         var item = e.target.parentNode;
         if (selectedItem) contractItem(selectedItem);
         if (selectedItem != item) {
@@ -335,7 +335,7 @@ $(window).load(function() {
     });
 
     // Update texture with canvas contents when a filter is accepted
-    $('.accept').live('click', function() {
+    $('.accept').bind('click', function() {
         contractItem(selectedItem);
         texture.destroy();
         texture = canvas.contents();
@@ -368,14 +368,14 @@ $(window).load(function() {
             '<div class="button closedialog">Cancel</div>');
         showDialog();
     });
-    $('#dialog input.upload').live('change', function(e) {
+    $('#dialog input.upload').bind('change', function(e) {
         var reader = new FileReader();
         reader.onload = function(e) {
             loadImage(e.target.result);
         };
         reader.readAsDataURL(e.target.files[0]);
     });
-    $('#dialog img.loader').live('mousedown', function(e) {
+    $('#dialog img.loader').bind('mousedown', function(e) {
         loadImage(e.target.src);
     });
     $('#save').click(function() {
@@ -389,7 +389,7 @@ $(window).load(function() {
         'closedialog">Close</div>');
         showDialog();
     });
-    $('.closedialog').live('click', function() {
+    $('.closedialog').bind('click', function() {
         hideDialog();
     });
 
