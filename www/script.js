@@ -2,11 +2,7 @@
 // Initialization code
 ////////////////////////////////////////////////////////////////////////////////
 
-var canvas;
-var canvas2d;
-var texture;
-var selectedItem;
-var selectedFilter;
+
 
 function loadImage(src) {
     var image = new Image();
@@ -117,6 +113,12 @@ function init(image) {
         width: image.width,
         height: image.height
     });
+    $('#brush').css({
+        width: image.width,
+        height: image.height
+    });
+    $('#brush').attr('width',image.width);
+    $('#brush').attr('height',image.height);
     canvas2d.width = image.width;
     canvas2d.height = image.height;
 
@@ -125,6 +127,8 @@ function init(image) {
     setSelectedFilter(null);
     selectedItem = null;
     $('#loading').hide();
+     InitPhotoshop();
+
 }
 
 $(window).load(function() {
@@ -325,32 +329,9 @@ $(window).load(function() {
     }
 
 
-    // Change the filter when a sidebar item is clicked
-    //      /. Sidebar -> Topbar ( 2016.05.31 Seungjun )
-    //          -. 1. 사이드바 탑바로 이동. 
-    //          -. 2. 기존 오픈되어 있던 메뉴와 달리, 드롭다운 메뉴 클릭시에 그 아래에 나와야함.
-    $('#sidebar .item .title').bind('mousedown', function(e) {
-        var item = e.target.parentNode;
-        if (selectedItem) contractItem(selectedItem);
-        if (selectedItem != item) {
-            expandItem(item);
-            selectedItem = item;
-            setSelectedFilter(item.filter);
-        } else {
-            setSelectedFilter(null);
-            selectedItem = null;
-        }
-    });
-    
+ 
 
-    // Update texture with canvas contents when a filter is accepted
-    $('.accept').bind('click', function() {
-        contractItem(selectedItem);
-        texture.destroy();
-        texture = canvas.contents();
-        setSelectedFilter(null);
-        selectedItem = null;
-    });
+   
 
     // Hook up toolbar buttons
     $('#load').click(function() {
@@ -404,6 +385,8 @@ $(window).load(function() {
 
     // Start loading the first image
     loadImage('samples/mountain.jpg');
+
+
 });
 
 ////////////////////////////////////////////////////////////////////////////////

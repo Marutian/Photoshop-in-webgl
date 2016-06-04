@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html><head>
     <title>Web PhotoShop</title>
-    <script type="text/javascript" src="jquery/jquery-1.12.4.min.js"></script>
+    <script>
+    var canvas;
+var canvas2d;
+var texture;
+var selectedItem;
+var selectedFilter;
+    </script>
+    <script type="text/javascript" src="colorpicker/js/jquery.js"></script>
+    <script type="text/javascript" src="colorpicker/js/colorpicker.js"></script>
+    <script type="text/javascript" src="colorpicker/js/eye.js"></script>
+    <script type="text/javascript" src="colorpicker/js/utils.js"></script>
+    <script type="text/javascript" src="colorpicker/js/layout.js?ver=1.0.2"></script>
+
     <script type="text/javascript" src="jquery/jquery.ui.slider.js"></script>
     <script type="text/javascript" src="http://evanw.github.com/glfx.js/glfx.js"></script>
     <script type="text/javascript" src="photoshop.js"></script>
+    <script type="text/javascript" src="tool.js"></script>
+    <script type="text/javascript" src="pipet.js"></script>
+    <script type="text/javascript" src="brush.js"></script>
     <script type="text/javascript" src="script.js"></script>
 
     <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" href="colorpicker/css/colorpicker.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="photoshop.css">
 </head><body>
@@ -70,19 +86,19 @@
             <li class="select">Select</li>
             <li class="filter">Filter
              <ul class="open">
-                    <li class="top_menu ink">
+                    <li class="top_menu ink" data-no="12">
                         Ink
                     </li>
-                    <li class="top_menu edge">
+                    <li class="top_menu edge" data-no="13">
                         Edge Work
                     </li>
-                    <li class="top_menu hexagonal">
+                    <li class="top_menu hexagonal" data-no="14">
                         Hexagonal Pixelate
                     </li>
-                    <li class="top_menu dot">
+                    <li class="top_menu dot" data-no="15">
                         Dot Screen
                     </li>
-                    <li class="top_menu colorhalf">
+                    <li class="top_menu colorhalf" data-no="16">
                         Color Halftone
                     </li>
                 </ul>
@@ -116,24 +132,28 @@
             <div class="tool select" data-tool="select">
                     <img src="images/tools1.jpg">
             </div>
-            <div class="tool crop">
+            <div class="tool crop" data-tool="crop">
                     <img src="images/tools2.jpg">
             </div>
-            <div class="tool colorpick">
+           <div class="tool colorpick" data-tool="pipet">
                     <img src="images/tools3.jpg">
             </div>
-            <div class="tool brush">
+            <div class="tool brush" data-tool="brush">
                     <img src="images/tools4.jpg">
             </div>
-            <div class="tool eraser">
+            <div class="tool eraser" data-tool="eraser">
                     <img src="images/tools6.jpg">
             </div>
-            <div class="tool fill">
+            <div class="tool fill" data-tool="fill">
                     <img src="images/tools7.jpg">
             </div>
-            <div class="tool text">
+            <div class="tool text" data-tool="text">
                     <img src="images/tools8.jpg">
             </div>
+             <div class="tool color" data-tool="crop"">
+                <div id="colorSelector"><div  style="background-color: #ffffff"></div></div>
+            </div>
+
         </div>
     </div>
    
@@ -141,6 +161,7 @@
         <div class="contents">
             <div id="placeholder"></div>
             <canvas id="canvas2d"></canvas>
+            <canvas id="brush"></canvas>
             <div id="nubs"></div>
             <div id="selects">
                 <div id="rect"><div class="rb_w"></div><div class="rb_b"></div></div>

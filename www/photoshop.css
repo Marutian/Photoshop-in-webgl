@@ -11,6 +11,28 @@ body{margin:0;}
 #topbar .menu>li .open .border{height:1px;background:#a0a0a0;border-bottom:1px solid #fff;margin:0 4px;}
 
 
+#editor .contents #brush {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+#colorSelector{
+    position: relative;
+    width: 34px;
+    height: 34px;
+    background: url(colorpicker/images/select.png);
+}
+#colorSelector div {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 30px;
+    height: 30px;
+    background: url(colorpicker/images/select.png) center;
+}
+
 #sidebar {
     z-index: 101;
     background:#535353;
@@ -45,6 +67,8 @@ body{margin:0;}
 #tools .tool>img{display:block;}
 #tools .tool:hover{background:#fff;border:1px solid #333;}
 #tools .tool:hover img{opacity:0.9;}
+#tools .color:hover{background:none;border:1px solid #535353;}
+#tools .color:hover img{opacity:1.0;}
 #tools .tool.active{background:#000;border:1px solid #333;}
 #tools .tool.active img{opacity:0.9;}
 
