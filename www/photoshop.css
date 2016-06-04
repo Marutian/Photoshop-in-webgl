@@ -11,7 +11,7 @@ body{margin:0;}
 #topbar .menu>li .open .border{height:1px;background:#a0a0a0;border-bottom:1px solid #fff;margin:0 4px;}
 
 
-#toolbar {
+#sidebar {
     z-index: 101;
     background:#535353;
     position: absolute;
@@ -23,8 +23,15 @@ body{margin:0;}
     border-bottom:1px solid #282828;
 }
 
+#sidebar .header{
+    display:none;
+}
+
+#sidebar .item{
+    display:none;
+}
 #toolbar .button {
-	display:none;
+    display:none;
     float: left;
     line-height: 27px;
     margin: 7px 0 0 7px;
@@ -40,3 +47,28 @@ body{margin:0;}
 #tools .tool:hover img{opacity:0.9;}
 #tools .tool.active{background:#000;border:1px solid #333;}
 #tools .tool.active img{opacity:0.9;}
+
+#editor .contents #selects {
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+#editor .contents #selects #rect {
+    position: absolute;
+    display:none;
+}
+#editor .contents #selects #rect .rb_b{
+    position: absolute;
+    width:100%;
+    height:100%;
+    border:1px dashed #000;
+}
+
+#editor .contents #selects #rect .rb_w{
+    position: absolute;
+    width:100%;
+    height:100%;
+    border:1px solid #fff;
+}
