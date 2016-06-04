@@ -62,7 +62,7 @@ function toolSelectInit(){
 			'left':prevPoint.x,
 			'width':0,
 			'height':0
-		}).show();
+		}).show();;
 	});
 	$(document).mouseup(function(e){
 		isMouseDown=false;
@@ -145,62 +145,14 @@ function toolSelectInit(){
 				up_h=-h;
 			}
 
-
-			//	console.log(e.offsetX);
+			
+		//	console.log(e.offsetX);
 		}
 	});
 }
 function toolMoveInit(){
 	alert("!");
 }
-function toolColorPickInit(){
-
-	var c = document.getElementById('canvas2d').getContext('2d');
-	var isMouseDown=false;
-	var clickPoint;
-	var c_width=$('#editor .contents ').width();
-	var c_height=$('#editor .contents ').height();
-	var up_w;
-	var up_h;
-	var up_x;
-	var up_y;
-	var init={
-		'x':$('#editor .contents ').offset().left,
-		'y':$('#editor .contents ').offset().top
-	}
-
-	$('#editor .contents ').mousedown(function(e){
-		isMouseDown=true;
-		clickPoint={
-			'x':e.pageX-init.x,
-			'y':e.pageY-init.y
-		};
-
-		console.log(clickPoint);
-
-	//	var imageData = c.getImageData(clickPoint.x, clickPoint.y, 1, 1).data;
-
-	//	console.log("#" + ("000000" + rgbToHex(imageData[0], imageData[1], imageData[2])).slice(-6));
-
-	});
-	$(document).mouseup(function(e){
-		isMouseDown=false;
-		$('#editor #selects #rect').css({
-			'top':up_y,
-			'left':up_x,
-			'width':up_w,
-			'height':up_h
-		});
-	})
-
-}
-
-function rgbToHex(r, g, b) {
-	if (r > 255 || g > 255 || b > 255)
-		throw "Invalid color component";
-	return ((r << 16) | (g << 8) | b).toString(16);
-}
-
 function SetCurrentTool(toolname){
 	switch(toolname){
 		case 'select':
@@ -209,9 +161,6 @@ function SetCurrentTool(toolname){
 		case 'move':
 			//~~
 			toolMoveInit();
-			break;
-		case 'colorpick':
-			toolColorPickInit();
 			break;
 	}
 }

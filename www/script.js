@@ -327,8 +327,8 @@ $(window).load(function() {
 
     // Change the filter when a sidebar item is clicked
     //      /. Sidebar -> Topbar ( 2016.05.31 Seungjun )
-    //          -. 1. ì‚¬ì´ë“œë°” íƒ‘ë°”ë¡œ ì´ë™.
-    //          -. 2. ê¸°ì¡´ ì˜¤í”ˆë˜ì–´ ìˆë˜ ë©”ë‰´ì™€ ë‹¬ë¦¬, ë“œë¡­ë‹¤ìš´ ë©”ë‰´ í´ë¦­ì‹œì— ê·¸ ì•„ë˜ì— ë‚˜ì™€ì•¼í•¨.
+    //          -. 1. 사이드바 탑바로 이동. 
+    //          -. 2. 기존 오픈되어 있던 메뉴와 달리, 드롭다운 메뉴 클릭시에 그 아래에 나와야함.
     $('#sidebar .item .title').bind('mousedown', function(e) {
         var item = e.target.parentNode;
         if (selectedItem) contractItem(selectedItem);
@@ -341,7 +341,7 @@ $(window).load(function() {
             selectedItem = null;
         }
     });
-
+    
 
     // Update texture with canvas contents when a filter is accepted
     $('.accept').bind('click', function() {
@@ -392,10 +392,10 @@ $(window).load(function() {
     });
     $('#about').click(function() {
         $('#dialog').html('<div class="contents">Copyright 2011 <a href="http://madebyevan.com">Evan Wallace</a>' +
-            '<br><br>This application is powered by <a href="http://evanw.github.com/glfx.js/">glfx.js</a>, an ' +
-            'open-source image effect library that uses WebGL.&nbsp; The source code for this application is ' +
-            'also <a href="http://github.com/evanw/webgl-filter/">available on GitHub</a>.</div><div class="button ' +
-            'closedialog">Close</div>');
+        '<br><br>This application is powered by <a href="http://evanw.github.com/glfx.js/">glfx.js</a>, an ' +
+        'open-source image effect library that uses WebGL.&nbsp; The source code for this application is ' +
+        'also <a href="http://github.com/evanw/webgl-filter/">available on GitHub</a>.</div><div class="button ' +
+        'closedialog">Close</div>');
         showDialog();
     });
     $('.closedialog').bind('click', function() {
