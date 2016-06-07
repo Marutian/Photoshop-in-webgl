@@ -346,7 +346,7 @@ $(window).load(function() {
             '<img class="loader" src="samples/perspective.jpg" height="100">' +
             '</div><div class="credits">Flickr image credits in order: ' +
             '<a href="http://www.flickr.com/photos/matthigh/2125630879/">matthigh</a>, ' +
-            '<a href="http://www.flickr.com/photos/delosj/5816379127/">delosj</a>, ' +
+            '<a href="samples/smoke.jpg/">delosj</a>, ' +
             '<a href="http://www.flickr.com/photos/stuckincustoms/219537913/">stuckincustoms</a>, ' +
             '<a href="http://www.flickr.com/photos/pasma/580401331/">pasma</a>, ' +
             '<a href="http://www.flickr.com/photos/delosj/5546225759/">delosj</a>, ' +
@@ -359,6 +359,7 @@ $(window).load(function() {
         showDialog();
     });
     $('#dialog input.upload').bind('change', function(e) {
+        console.log("uploader");
         var reader = new FileReader();
         reader.onload = function(e) {
             loadImage(e.target.result);
@@ -366,6 +367,7 @@ $(window).load(function() {
         reader.readAsDataURL(e.target.files[0]);
     });
     $('#dialog img.loader').bind('mousedown', function(e) {
+        console.log("loader");
         loadImage(e.target.src);
     });
     $('#save').click(function() {
@@ -380,6 +382,7 @@ $(window).load(function() {
         showDialog();
     });
     $('.closedialog').bind('click', function() {
+         console.log("hidecheck");
         hideDialog();
     });
 

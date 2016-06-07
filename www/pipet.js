@@ -1,7 +1,4 @@
 function toolPipetInit() {
-
-    toolClear();
-
     var pixels = canvas.getPixelArray();
     var clickPoint;
     var c_width=$('#editor .contents ').width();
@@ -13,21 +10,22 @@ function toolPipetInit() {
     }
 
     $('#editor .contents ').mousedown(function(e){
+        if(toolPipet){
+            clickPoint={
+                'x':e.pageX-init.x,
+                'y':e.pageY-init.y
+            };
 
+            var index = (Math.floor(clickPoint.y) * canvas.width + Math.floor(clickPoint.x)) * 4;
 
-        clickPoint={
-            'x':e.pageX-init.x,
-            'y':e.pageY-init.y
-        };
+            var color = {
+                'r':pixels[index],
+                'g':pixels[index+1],
+                'b':pixels[index+2]
+            }
 
-        var index = (Math.floor(clickPoint.y) * canvas.width + Math.floor(clickPoint.x)) * 4;
-
-        var color = {
-            'r':pixels[index],
-            'g':pixels[index+1],
-            'b':pixels[index+2]
+            $('#colorSelector').ColorPickerSetColor(color);
         }
-
-        $('#colorSelector').ColorPickerSetColor(color);
     });
+
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html><head>
     <title>Web PhotoShop</title>
+    <meta charset="utf-8">
     <script>
     var canvas;
 var canvas2d;
@@ -20,6 +21,7 @@ var selectedFilter;
     <script type="text/javascript" src="tool.js"></script>
     <script type="text/javascript" src="pipet.js"></script>
     <script type="text/javascript" src="brush.js"></script>
+    <script type="text/javascript" src="text.js"></script>
     <script type="text/javascript" src="script.js"></script>
 
     <link rel="stylesheet" type="text/css" href="reset.css">
@@ -30,19 +32,22 @@ var selectedFilter;
     <div id="topbar">
         <div class="logo"><img src="images/logo.jpg" alt="logo"></div>
         <ul class="menu">
+        <!--
             <li class="file">File
                 <ul class="open">
-                    <li class="top_menu new">
+                    <li class="top_menu new" data-no="100">
                         New
                     </li>
-                    <li class="top_menu load">
+                    <li class="top_menu load" data-no="101" id="loads" input type="file">
                         Open
                     </li>
-                    <li class="top_menu save">
+                    <li class="top_menu save" data-no="102" id="save">
                         Save
                     </li>
                 </ul>
             </li>
+            -->
+            <!--
             <li class="edit">Edit
              <ul class="open">
                     <li class="top_menu cut">
@@ -64,26 +69,45 @@ var selectedFilter;
                     </li>
                 </ul>
             </li>
+            -->
             <li class="image">Image
                 <ul class="open">
-                    <li class="top_menu contrast">
+                    <li class="top_menu contrast" data-no="0">
                         Brightness / Contrast
                     </li>
-                    <li class="top_menu hue">
+                    <li class="top_menu hue" data-no="1">
                         Hue / Saturation
                     </li>
-                    <li class="top_menu curves">
+                    <!--
+                    <li class="top_menu curves" data-no="2">
                         Curves
                     </li>
-                    <li class="top_menu denoise">
+                    -->
+                    <li class="top_menu denoise" data-no="3">
                         Denoise
                     </li>
-                    <li class="top_menu unsharp">
+                    <li class="top_menu unsharp" data-no="4">
                         Unsharp Mask
                     </li>
                 </ul>
             </li>
-            <li class="select">Select</li>
+             <li class="image">Blur
+                <ul class="open">
+                    <li class="top_menu contrast" data-no="5">
+                        Zoom Blur
+                    </li>
+                    <li class="top_menu hue" data-no="6">
+                        Triangle Blur
+                    </li>
+
+                    <li class="top_menu denoise" data-no="7">
+                        Tilt Shift
+                    </li>
+                    <li class="top_menu unsharp" data-no="8">
+                        Lens Blur
+                    </li>
+                </ul>
+            </li>
             <li class="filter">Filter
              <ul class="open">
                     <li class="top_menu ink" data-no="12">
@@ -102,17 +126,7 @@ var selectedFilter;
                         Color Halftone
                     </li>
                 </ul>
-                </li>
-            <li class="help">Help
-              <ul class="open">
-                    <li class="top_menu version">
-                        Version
-                    </li>
-                    <li class="top_menu contact">
-                        Contact
-                    </li>
-                </ul>
-                </li>
+            </li>
         </ul>
     </div>
     <div id="sidebar"></div>
@@ -126,15 +140,19 @@ var selectedFilter;
     <div id="tools">
         <img class="top" src="images/tools_top.jpg">
         <div class="menu">
+        <!--
             <div class="tool move active" data-tool="move">
                     <img src="images/tools0.jpg">
             </div>
+            -->
             <div class="tool select" data-tool="select">
                     <img src="images/tools1.jpg">
             </div>
+            <!--
             <div class="tool crop" data-tool="crop">
                     <img src="images/tools2.jpg">
             </div>
+            -->
            <div class="tool colorpick" data-tool="pipet">
                     <img src="images/tools3.jpg">
             </div>
@@ -144,19 +162,21 @@ var selectedFilter;
             <div class="tool eraser" data-tool="eraser">
                     <img src="images/tools6.jpg">
             </div>
+            <!--
             <div class="tool fill" data-tool="fill">
                     <img src="images/tools7.jpg">
             </div>
+            -->
             <div class="tool text" data-tool="text">
                     <img src="images/tools8.jpg">
             </div>
-             <div class="tool color" data-tool="crop"">
+             <div class="tool color" data-tool="color">
                 <div id="colorSelector"><div  style="background-color: #ffffff"></div></div>
             </div>
 
         </div>
     </div>
-   
+
     <div id="editor">
         <div class="contents">
             <div id="placeholder"></div>
@@ -165,6 +185,35 @@ var selectedFilter;
             <div id="nubs"></div>
             <div id="selects">
                 <div id="rect"><div class="rb_w"></div><div class="rb_b"></div></div>
+                <div id="text">
+                    <textarea type="text" class="text"></textarea>
+                    <div class="setting">
+                        <div class="row">
+                            <div class="left">
+                                font family :
+                            </div>
+                            <div class="right">
+                                <select>
+                                    <option>돋움</option>
+                                    <option>궁서</option>
+                                    <option>바탕</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div class="row">
+                             <div class="left">
+                                font size :
+                            </div>
+                             <div class="right">
+                                <input type="number" class="num" value="24"><span> px</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="btn ok">Accept</div>
+                            <div class="btn cancle">Cancle</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
